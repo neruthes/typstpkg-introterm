@@ -1,6 +1,6 @@
 # typstpkg-introterm
 
-HTML parsing and rendering in Typst.
+This package provides fake terminals for shell commands.
 
 ## Demo
 
@@ -15,7 +15,7 @@ https://pub-714f8d634e8f451d9f2fe91a4debfa23.r2.dev/typstpkg-introterm/5c1e77cec
   prompt: "user:machine$ ",
 )
 #shcmd_session(prompt: auto)[
-  #shcmd(`date -Is && echo "$(whoami)@$HOSTNAME" && `)
+  #shcmd(`date -Is && echo "$(whoami)@$HOSTNAME" && uname -a`)
   #shcmd(`sha1sum /proc/mounts | sha1sum | sha1sum | sha1sum`)
 ]
 ```

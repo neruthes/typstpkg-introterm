@@ -1,9 +1,9 @@
-#let __state__shcmd_session_id = state("__state__shcmd_session_id", 0)
+#let __state__shcmd-session_id = state("__state__shcmd-session_id", 0)
 #let __state__shcmd_is_in_session = state("__state__shcmd_is_in_session", false)
 #let __state__shcmd_arr = state("__state__shcmd_arr", ())
 
 #let __state__shcmd_defaultprompt = state("__state__shcmd_defaultprompt", "")
-#let __state__shcmd_sessionprompt = state("__state__shcmd_sessionprompt", "")
+#let __state__shcmd-sessionprompt = state("__state__shcmd-sessionprompt", "")
 #let __state__shcmd_fonts = state("__state__shcmd_fonts", (
   "JetBrains Mono NL",
   "Libertinus Mono",
@@ -15,7 +15,7 @@
 
 #let shcmd(cmdlineraw) = context {
   let cmdseq = __state__shcmd_arr.get().len() + 1
-  let current_session = __state__shcmd_session_id.get()
+  let current_session = __state__shcmd-session_id.get()
   let in_session = __state__shcmd_is_in_session.get()
 
   // Create an anonymous session ID if we aren't inside an explicit session block
@@ -26,7 +26,7 @@
   }
 
   let __prompt_styler(it) = text(fill: green.lighten(40%), it)
-  let __prompt = __state__shcmd_sessionprompt.get()
+  let __prompt = __state__shcmd-sessionprompt.get()
   if __prompt == none { __prompt = "" }
 
   let fake_raw(it) = {
@@ -75,8 +75,16 @@
 #let shcmddump() = context {
   let actions_arr = __state__shcmd_arr.get()
   let __runmesh_stash = (
-    "#!/bin/bash",
-    "exec > >(tee RUNME.sh.out) 2>&1", // Global redirection
+    ```sh
+    #!/bin/bash
+    # Ensure a consistent terminal width for tools like neofetch
+    export COLUMNS=80
+    export LINES=40
+    export TERM=xterm
+
+    # Global redirection with ANSI normalization
+    exec > >(tee RUNME.sh.out) 2>&1
+    ```.text,
     "",
   )
 
@@ -106,18 +114,18 @@
   shcmddump()
 }
 
-#let shcmd_session(it, prompt: auto) = context {
+#let shcmd-session(it, prompt: auto) = context {
   let p = if prompt == auto { __state__shcmd_defaultprompt.get() } else { prompt }
 
-  __state__shcmd_session_id.update(it => it + 1)
+  __state__shcmd-session_id.update(it => it + 1)
   __state__shcmd_is_in_session.update(true)
-  __state__shcmd_sessionprompt.update(p)
+  __state__shcmd-sessionprompt.update(p)
 
   set text(fill: white)
   set par(leading: 0.62em, spacing: 0.62em)
   block(width: 100%, fill: black.lighten(15%), inset: 4mm, radius: 1mm, it)
 
   __state__shcmd_is_in_session.update(false)
-  __state__shcmd_sessionprompt.update(__state__shcmd_defaultprompt.get())
+  __state__shcmd-sessionprompt.update(__state__shcmd_defaultprompt.get())
 }
 

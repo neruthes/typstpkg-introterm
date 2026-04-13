@@ -9,21 +9,31 @@
 )
 
 
-
-#shcmd_session[
+```typ
+#shcmd-session[
   #shcmd(`date -Is && echo "$(whoami)@$HOSTNAME" && uname -a`)
   #shcmd(`sha1sum /proc/mounts | sha1sum | sha1sum | sha1sum`)
 ]
-
-#shcmd_session[
-  #shcmd(`lsblk`)
+#shcmd-session[
   #shcmd(`ping 1.1.1.1 -c 6`)
 ]
+#shcmd-session[
+  #shcmd(`export MYNAME="Alice"`)
+  #shcmd(`bash -c 'echo "Hello $MYNAME"'`)
+]
+```
 
-#shcmd_session[
+
+#shcmd-session[
+  #shcmd(`date -Is && echo "$(whoami)@$HOSTNAME" && uname -a`)
+  #shcmd(`sha1sum /proc/mounts | sha1sum | sha1sum | sha1sum`)
+]
+#shcmd-session[
+  #shcmd(`ping 1.1.1.1 -c 6`)
+]
+#shcmd-session[
   #shcmd(`export MYNAME="Alice"`)
   #shcmd(`bash -c 'echo "Hello $MYNAME"'`)
 ]
 
-#shcmd(`echo "I am a session-less command"`)
 
