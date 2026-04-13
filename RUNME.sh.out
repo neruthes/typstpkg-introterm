@@ -1,0 +1,54 @@
+########4ed98fd09cb843c8adf9c840b34be3be--rowid=0
+2026-04-13T04:20:31+00:00
+neruthes@NDLT7
+Linux NDLT7 6.18.7-gentoo-x86_64 #1 SMP PREEMPT_DYNAMIC Thu Feb  5 11:44:23 UTC 2026 x86_64 Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz GenuineIntel GNU/Linux
+########4ed98fd09cb843c8adf9c840b34be3be--rowid=1
+f2fa8c15a1bb3ee0adde9f3cbb4ec459bddff08c  -
+########4ed98fd09cb843c8adf9c840b34be3be--rowid=2
+NAME         MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+nvme0n1      259:0    0 465.8G  0 disk  
+├─nvme0n1p1  259:1    0   512M  0 part  /efi
+└─nvme0n1p2  259:2    0 465.3G  0 part  
+  └─root     253:0    0 465.3G  0 crypt /tmp/fakehome
+                                        /chroot/self/var/lib/docker
+                                        /chroot/self/var
+                                        /chroot/self/usr
+                                        /chroot/self/sbin
+                                        /chroot/self/root
+                                        /chroot/self/opt
+                                        /chroot/self/mnt
+                                        /chroot/self/media
+                                        /chroot/self/lib64
+                                        /chroot/self/lib
+                                        /chroot/self/etc
+                                        /chroot/self/boot
+                                        /chroot/self/bin
+                                        /var/lib/docker
+                                        /
+nvme1n1      259:3    0 953.9G  0 disk  
+├─nvme1n1p1  259:4    0   100M  0 part  
+├─nvme1n1p2  259:5    0    16M  0 part  
+├─nvme1n1p3  259:6    0   420G  0 part  
+├─nvme1n1p4  259:7    0 416.6G  0 part  
+│ └─NEPd4_LS 253:1    0 416.6G  0 crypt /chroot/self/var/cache/distfiles
+│                                       /chroot/self/mnt/NEPd4_Intel660p/LS
+│                                       /var/cache/distfiles
+│                                       /mnt/NEPd4_Intel660p/LS
+└─nvme1n1p5  259:8    0 117.1G  0 part  
+########4ed98fd09cb843c8adf9c840b34be3be--rowid=3
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=54 time=98.4 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=54 time=97.2 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=54 time=98.5 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=54 time=98.8 ms
+64 bytes from 1.1.1.1: icmp_seq=5 ttl=54 time=98.4 ms
+64 bytes from 1.1.1.1: icmp_seq=6 ttl=54 time=98.4 ms
+
+--- 1.1.1.1 ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5005ms
+rtt min/avg/max/mdev = 97.189/98.285/98.846/0.516 ms
+########4ed98fd09cb843c8adf9c840b34be3be--rowid=4
+########4ed98fd09cb843c8adf9c840b34be3be--rowid=5
+Hello Alice
+########4ed98fd09cb843c8adf9c840b34be3be--rowid=6
+I am a session-less command

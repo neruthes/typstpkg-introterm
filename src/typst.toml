@@ -1,0 +1,11 @@
+[package]
+
+name = "introterm"
+version = "0.1.0"
+entrypoint = "introterm.typ"
+authors = ["@Neruthes"]
+license = "MIT"
+description = "Fake terminal"
+repository = "https://github.com/neruthes/typstpkg-introterm"
+keywords = ["Terminal", "Shell"]
+categories = ["utility"]
