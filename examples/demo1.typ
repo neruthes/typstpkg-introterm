@@ -10,6 +10,10 @@
 
 
 ```typ
+#show: enable-shcmd-context.with(
+  result-path: "/RUNME.sh.out",
+  prompt: "user:machine$ ",
+)
 #shcmd-session[
   #shcmd(`date -Is && echo "$(whoami)@$HOSTNAME" && uname -a`)
   #shcmd(`sha1sum /proc/mounts | sha1sum | sha1sum | sha1sum`)
@@ -22,7 +26,6 @@
   #shcmd(`bash -c 'echo "Hello $MYNAME"'`)
 ]
 ```
-
 
 #shcmd-session[
   #shcmd(`date -Is && echo "$(whoami)@$HOSTNAME" && uname -a`)
