@@ -31,7 +31,7 @@ case "$1" in
         echo "[INFO] This is a simple project requiring no building at all."
         ;;
     examples/*.typ )
-        command -v typst || _die 1 "ERROR: Make target 'install_local' requires typst"
+        command -v typst || _die 1 "ERROR: Make target '$1' requires typst"
         typst c --root . "$1"
         ;;
     docs/*.typ )
